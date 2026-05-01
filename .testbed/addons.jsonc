@@ -1,9 +1,9 @@
 {
   "$schema": "https://chickensoft.games/schemas/addons.schema.json",
   "addons": {
-    // Batch 1 pins the foundational core contract for input-driver work.
-    "aerobeat-core": {
-      "url": "git@github.com:AeroBeat-Workouts/aerobeat-core.git",
+    // Shared input contracts for touch-provider development and validation.
+    "aerobeat-input-core": {
+      "url": "git@github.com:AeroBeat-Workouts/aerobeat-input-core.git",
       "checkout": "v0.1.0",
       "subfolder": "/"
     },

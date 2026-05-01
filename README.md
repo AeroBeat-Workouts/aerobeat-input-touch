@@ -1,16 +1,24 @@
-# AeroBeat Input Driver - Touch
+# AeroBeat Touch Input
 
-This is the official Input driver for AeroBeat's Touch support.
+Touch input remains a **future gameplay support path** for AeroBeat.
 
-Input Drivers bridge hardware (Webcams, VR Controllers, Smart Watches) to the AeroBeat Core contracts.
+For the current AeroBeat v1 slice:
+
+- **Official gameplay input:** camera only
+- **Official gameplay features:** Boxing and Flow
+- **Valid current use for touch:** UI and menu navigation on touch-capable/mobile surfaces
+- **Not current official parity:** touch-driven gameplay
+
+This repo stays useful because it preserves the touch-provider seam for future work without implying that touch is an equal-status AeroBeat v1 gameplay target today.
 
 ## 📋 Repository Details
 
-*   **Type:** Input Driver
-*   **License:** **Mozilla Public License 2.0 (MPL 2.0)**
-*   **Dependencies:**
-    *   `aerobeat-core` (Required)
-    *   `aerobeat-vendor-*` (Allowed)
+- **Type:** Input Driver
+- **Current stance:** future/deprioritized gameplay support; truthful for UI/menu navigation
+- **License:** **Mozilla Public License 2.0 (MPL 2.0)**
+- **Dependencies:**
+  - `aerobeat-input-core` (canonical shared input contract)
+  - `aerobeat-vendor-*` (allowed)
 
 ## GodotEnv development flow
 
@@ -33,7 +41,7 @@ cd .testbed
 godotenv addons install
 ```
 
-That installs the pinned `aerobeat-core` foundation plus GUT into `.testbed/addons/`.
+That restores this repo's committed dev/test manifest into `.testbed/addons/`, including the shared `aerobeat-input-core` contract and GUT.
 
 ### Open the workbench
 
@@ -43,7 +51,7 @@ From the repo root:
 godot --editor --path .testbed
 ```
 
-Use this `.testbed/` project as the canonical direct-development and bugfinding surface for input-driver work.
+Use this `.testbed/` project as the canonical direct-development and bugfinding surface for touch-input work.
 
 ### Import smoke check
 
@@ -67,6 +75,6 @@ godot --headless --path .testbed --script addons/gut/gut_cmdln.gd \
 ### Validation notes
 
 - `.testbed/addons.jsonc` is the committed dev/test dependency contract.
-- The manifest pins `aerobeat-core` to `v0.1.0` and GUT to `main`.
-- Repo-local unit tests live under `.testbed/tests/`; this repo's current package payload is rooted at `/`, so the workbench does not ship a `.testbed/src` bridge for this subset.
-- The current package shape is consumed from the repo root (`subfolder: "/"`) for downstream installs.
+- The manifest should describe the shared input dependency as `aerobeat-input-core`, not the older transition-era `aerobeat-core` key.
+- Repo-local unit tests live under `.testbed/tests/`.
+- Keep touch wording truthful: valid for UI/menu navigation today, but not current official gameplay parity.
